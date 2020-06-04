@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_2-of-12">
+            <lightning-button-icon
+                class="slds-button slds-button_icon"
+                icon-class="slds-button__icon"
+                icon-name="utility:check"
+                variant={btnMarkVariant}
+                alternative-text="Mark"
+                onclick={handleMark}>
+            </lightning-button-icon>
+        </div>
+        <div class="slds-col slds-size_8-of-12">
+            {todo.Name}
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+            <lightning-button-icon
+                class="slds-button slds-button_icon slds-button_icon-error"
+                icon-class="slds-button__icon slds-button_icon-error color-red"
+                icon-name="utility:delete"
+                alternative-text="Delete"
+                onclick={handleDelete}
+                variant="destructive"
+            ></lightning-button-icon>
+        </div>
+    </div>
+</template>

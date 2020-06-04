@@ -1,0 +1,37 @@
+<template>
+	<lightning-card>
+		<div class="slds-card__body_inner">
+			<!-- Start todo list -->
+			<template if:true={todoList.data}>
+				<lightning-input type="search"
+					onchange={handleSearch}
+					variant="label-hidden"
+					class="slds-m-bottom_small"
+					label="Search"
+					placeholder="Search"
+					value={searchTerm}>
+				</lightning-input>
+				<ul>
+					<template for:each={todoList.data} for:item="todo">
+						<li key={todo.Id}>
+							<c-todo-item todo={todo} ontodoupdate={handleTodoUpdate}></c-todo-item>
+						</li>
+					</template>
+				</ul>
+				<!-- No todo found -->
+				<template if:false={hasResults}>
+					<div class="slds-align_absolute-center slds-m-vertical_small">
+					    We did not find results...
+					</div>
+				</template>
+			</template>
+			<!-- End todo list -->
+			<!-- Data failed to load -->
+			<template if:true={todoList.error}>
+				<div class="slds-text-color_error">
+					An error occurred while loading the todo list
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+</template>
